@@ -4,6 +4,7 @@ import ContactList from '../ContactList';
 import { connect } from 'react-redux';
 import { contactsOperations } from '../../redux/phonebook';
 import { Component } from 'react';
+import { contactsSelectors } from '../../redux/phonebook';
 
 class Phonebook extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class Phonebook extends Component {
   }
 }
 const mapStateToProps = state => ({
-  items: state.contacts.items,
+  items: contactsSelectors.contactsArray(state),
 });
 
 const mapDispatchToProps = dispatch => ({

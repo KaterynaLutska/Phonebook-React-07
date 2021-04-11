@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { contactsSelectors } from '../../redux/phonebook';
 import { changeFilter } from '../../redux/phonebook';
 
 const Filter = ({ filter, changeFilter }) => {
@@ -20,7 +20,7 @@ const Filter = ({ filter, changeFilter }) => {
 };
 
 const mapStateToProps = state => ({
-  filter: state.contacts.filter,
+  filter: contactsSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
